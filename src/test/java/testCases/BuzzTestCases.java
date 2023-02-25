@@ -16,10 +16,10 @@ public class BuzzTestCases extends Base {
 	@Test
 	public void ValidateUserCanWriteAPostAndDeleteTheSame(String userName) throws Exception {
 		loginPage = new OrangeLoginPage(getDriver());
-		loginPage.loginOrangeHRM(userName, "admin123");
+		loginPage.loginOrangeHRM(userName,"admin123");
 		commonPage = new CommonPagesInOrangeHRM(getDriver());
-		commonPage.goToAnyPageInOrangeHRM("Buzz");
-		commonPage.validateAPageInOrangeHRM("Buzz");
+		commonPage.gotoAnyPagesInOrangeHRM("Buzz");
+		commonPage.validateAnyPagesInOrangeHRM("Buzz");
 	}
 	
 	@Test
@@ -27,8 +27,8 @@ public class BuzzTestCases extends Base {
 		loginPage = new OrangeLoginPage(getDriver());
 		loginPage.loginOrangeHRM();
 		commonPage = new CommonPagesInOrangeHRM(getDriver());
-		commonPage.goToAnyPageInOrangeHRM("Buzz");
-		commonPage.validateAPageInOrangeHRM("Buzz");
+		commonPage.gotoAnyPagesInOrangeHRM("Buzz");
+		commonPage.validateAnyPagesInOrangeHRM("Buzz");
 	}
 
 }

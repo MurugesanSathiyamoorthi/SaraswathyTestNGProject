@@ -10,8 +10,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 
 public class Base {
 
@@ -48,19 +54,24 @@ public class Base {
 		getDriver().manage().window().maximize();
 	}
 	
-	@BeforeTest
+	@BeforeMethod
 	public void openApplication() {
 		launchBrowser("chrome");
 		launchApplication("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		maximizeWindow();
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void tearDown() {
 		driver.close();
 		driver.quit();
 	}
-
+	
+	public void startTest() {
+		ExtentReports report= new ExtentReports()
+		
+	}
+	
 	/*
 	 * Wait Methods
 	 */

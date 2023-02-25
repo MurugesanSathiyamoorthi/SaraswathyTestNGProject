@@ -112,7 +112,7 @@ public class CommonPagesInOrangeHRM {
 	public void gotoAnyPagesInOrangeHRM(String pageName) {
 		switch (pageName) {
 		case "Admin":
-			Assert.assertEquals(link_Admin.getText(), "Admin");
+			link_Admin.click();
 			break;
 		case "PIM":
 			link_PIM.click();
@@ -153,34 +153,34 @@ public class CommonPagesInOrangeHRM {
 			Assert.assertEquals(link_Admin.getText(), text_Admin.getText());
 			break;
 		case "PIM":
-			Assert.assertEquals(link_Admin.getText(), text_PIM.getText());
+			Assert.assertEquals(link_PIM.getText(), text_PIM.getText());
 			break;
 		case "Leave":
-			Assert.assertEquals(link_Admin.getText(), text_Leave.getText());
+			Assert.assertEquals(link_Leave.getText(), text_Leave.getText());
 			break;
 		case "Time":
-			Assert.assertEquals(link_Admin.getText(), text_Time.getText());
+			Assert.assertEquals(link_Time.getText(), text_Time.getText());
 			break;
 		case "Recruitment":
-			Assert.assertEquals(link_Admin.getText(), text_Recruitment.getText());
+			Assert.assertEquals(link_Recruitment.getText(), text_Recruitment.getText());
 			break;
 		case "MyInfo":
-			Assert.assertEquals(link_Admin.getText(), text_MyInfo.getText());
+			Assert.assertEquals(link_MyInfo.getText(), text_MyInfo.getText());
 			break;
 		case "Performance":
-			Assert.assertEquals(link_Admin.getText(), text_Performance.getText());
+			Assert.assertEquals(link_Performance.getText(), text_Performance.getText());
 			break;
 		case "Dashboard":
-			Assert.assertEquals(link_Admin.getText(), text_Dashboard.getText());
+			Assert.assertEquals(link_Dashboard.getText(), text_Dashboard.getText());
 			break;
 		case "Directory":
-			Assert.assertEquals(link_Admin.getText(), text_Directory.getText());
+			Assert.assertEquals(link_Directory.getText(), text_Directory.getText());
 			break;
 		case "Maintenance":
-			Assert.assertEquals(link_Admin.getText(), text_AdministratorAccess.getText());
+			Assert.assertEquals(link_Maintenance.getText(), text_AdministratorAccess.getText());
 			break;
 		case "Buzz":
-			Assert.assertEquals(link_Admin.getText(), text_Buzz.getText());
+			Assert.assertEquals(link_Buzz.getText(), text_Buzz.getText());
 			break;
 		}
 	}
