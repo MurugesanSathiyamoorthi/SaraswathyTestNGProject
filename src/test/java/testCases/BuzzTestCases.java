@@ -20,7 +20,6 @@ public class BuzzTestCases extends Base {
 		
 		
 	
-	
 	@Parameters({"userName"})
 	@Test
 	public void ValidateUserCanWriteAPostAndDeleteTheSame(String userName) throws Exception {

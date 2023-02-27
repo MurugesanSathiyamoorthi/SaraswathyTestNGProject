@@ -64,7 +64,12 @@ public class Base {
 	public void openApplication() {
 		extent= new ExtentReports();
 		spark =new ExtentSparkReporter("ExtendReport.html");
-		
+//		https://www.youtube.com/watch?v=PzmEiG08L78
+//		Mukesh otwani
+//		Naveens Automation labs
+//		Automation Step by Step
+//		SDET
+//		Selectors hub - Creator
 		spark.config().setTheme(Theme.DARK);
 		spark.config().setDocumentTitle("MyReport");
 		extent.attachReporter(spark);
