@@ -16,14 +16,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-
 public class Base {
-	
+
 	public ExtentReports extent;
 	public ExtentSparkReporter spark;
+	public ExtentTest test;
 
 	WebDriver driver;
 
@@ -49,6 +51,20 @@ public class Base {
 
 	}
 
+	@BeforeMethod
+	public void extentReport() {
+		extent = new ExtentReports();
+		spark = new ExtentSparkReporter("target/spark.html");
+		spark.config().setReportName("Login OrangrHRM");
+		spark.config().setDocumentTitle("OrangeHRM");
+		spark.config().setTheme(Theme.DARK);
+        extent.attachReporter(spark);
+        
+        
+		
+
+	}
+
 	public void launchApplication(String url) {
 		getDriver().get(url);
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -57,36 +73,30 @@ public class Base {
 	public void maximizeWindow() {
 		getDriver().manage().window().maximize();
 	}
-	
-	
-	
+
 	@BeforeMethod
 	public void openApplication() {
-		extent= new ExtentReports();
-		spark =new ExtentSparkReporter("ExtendReport.html");
 //		https://www.youtube.com/watch?v=PzmEiG08L78
 //		Mukesh otwani
 //		Naveens Automation labs
 //		Automation Step by Step
 //		SDET
 //		Selectors hub - Creator
-		spark.config().setTheme(Theme.DARK);
-		spark.config().setDocumentTitle("MyReport");
-		extent.attachReporter(spark);
+        extentReport();
 		launchBrowser("chrome");
 		launchApplication("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		maximizeWindow();
 	}
-	
+
 	@AfterMethod
 	public void tearDown() {
-		extent.flush();
+	
 		driver.close();
 		driver.quit();
+		extent.flush();
+
 	}
-	
-	
-	
+
 	/*
 	 * Wait Methods
 	 */
@@ -94,7 +104,7 @@ public class Base {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
-	
+
 	public void pause(Integer seconds) {
 		try {
 			TimeUnit.SECONDS.sleep(seconds);
@@ -102,7 +112,7 @@ public class Base {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String readAProperty(String propertyName) throws Exception {
 		Properties prop = new Properties();
 		String path = System.getProperty("user.dir") + "\\src\\test\\resources\\project.properties";
